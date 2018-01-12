@@ -1,0 +1,40 @@
+*** Settings ***
+Library	Selenium2Library
+Test Setup	Setup Test
+#Test Teardown	Teardown Test
+
+
+*** Variables ***
+${URL address}=	https://yandex.ru/
+${browser}=	ff
+${coordinates}=	-27.154740, -109.432410
+${place on the map}=	остров Пасхи
+${country and city}=	Токопилья, Чили
+	
+	
+*** Keywords ***
+Setup Test
+	Open Browser			${URL address}			${browser}
+	Maximize Browser Window
+
+Check the expected result
+	Page Should Contain		${place on the map}
+	Page Should Contain		${country and city}
+	Page Should Contain		${coordinates}
+	
+Go to the google maps
+	Click Link				Карты
+
+Search by coordinates
+	Input Text				class:input_air-search-large__control						${coordinates}
+	Click Button			class:button_air-search-large._pin-left._pin-right
+	
+#Teardown Test
+	#Close All Browsers
+
+	
+*** Test cases ***
+Test number 2 Go to the Easter island
+	Go to the google maps
+	Search by coordinates
+	Check the expected result

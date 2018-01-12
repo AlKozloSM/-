@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180112 14:23:29.999" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\Python27\Tests\Test2\Test2.txt" id="s1" name="Test2">
+<test id="s1-t1" name="Test number 2 Go to the Easter island">
+<kw type="setup" name="Setup Test">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL address}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20180112 14:23:30.160" level="INFO">Opening browser 'ff' to base url 'https://yandex.ru/'.</msg>
+<status status="PASS" endtime="20180112 14:23:36.696" starttime="20180112 14:23:30.160"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20180112 14:23:36.726" starttime="20180112 14:23:36.696"></status>
+</kw>
+<status status="PASS" endtime="20180112 14:23:36.727" starttime="20180112 14:23:30.159"></status>
+</kw>
+<kw name="Go to the google maps">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>Карты</arg>
+</arguments>
+<msg timestamp="20180112 14:23:36.732" level="INFO">Clicking link 'Карты'.</msg>
+<status status="PASS" endtime="20180112 14:23:38.928" starttime="20180112 14:23:36.732"></status>
+</kw>
+<status status="PASS" endtime="20180112 14:23:38.928" starttime="20180112 14:23:36.731"></status>
+</kw>
+<kw name="Search by coordinates">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:input_air-search-large__control</arg>
+<arg>${coordinates}</arg>
+</arguments>
+<msg timestamp="20180112 14:23:38.929" level="INFO">Typing text '-27.154740, -109.432410' into text field 'class:input_air-search-large__control'.</msg>
+<status status="PASS" endtime="20180112 14:23:39.175" starttime="20180112 14:23:38.929"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>class:button_air-search-large._pin-left._pin-right</arg>
+</arguments>
+<msg timestamp="20180112 14:23:39.175" level="INFO">Clicking button 'class:button_air-search-large._pin-left._pin-right'.</msg>
+<status status="PASS" endtime="20180112 14:23:39.586" starttime="20180112 14:23:39.175"></status>
+</kw>
+<status status="PASS" endtime="20180112 14:23:39.586" starttime="20180112 14:23:38.928"></status>
+</kw>
+<kw name="Check the expected result">
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${place on the map}</arg>
+</arguments>
+<msg timestamp="20180112 14:23:39.643" level="INFO">Current page contains text 'остров Пасхи'.</msg>
+<status status="PASS" endtime="20180112 14:23:39.643" starttime="20180112 14:23:39.587"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${country and city}</arg>
+</arguments>
+<msg timestamp="20180112 14:23:39.723" level="INFO">Current page contains text 'Токопилья, Чили'.</msg>
+<status status="PASS" endtime="20180112 14:23:39.723" starttime="20180112 14:23:39.643"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${coordinates}</arg>
+</arguments>
+<msg timestamp="20180112 14:23:39.765" level="INFO">Current page contains text '-27.154740, -109.432410'.</msg>
+<status status="PASS" endtime="20180112 14:23:39.765" starttime="20180112 14:23:39.723"></status>
+</kw>
+<status status="PASS" endtime="20180112 14:23:39.765" starttime="20180112 14:23:39.587"></status>
+</kw>
+<status status="PASS" endtime="20180112 14:23:39.765" critical="yes" starttime="20180112 14:23:30.159"></status>
+</test>
+<status status="PASS" endtime="20180112 14:23:39.767" starttime="20180112 14:23:30.003"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test2" pass="1">Test2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
