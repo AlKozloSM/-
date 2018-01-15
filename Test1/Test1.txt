@@ -1,0 +1,49 @@
+*** Settings ***
+
+Library			OperatingSystem
+Test Setup		Check Folder
+Test Teardown	Remove Directory and Files
+
+*** Variables ***
+
+${dir}=						test_dir
+${new dir}=					${dir}/new
+${textfile}=				mytest.txt
+${content of the file}=		Hello World
+
+
+*** Keywords ***
+
+Check Folder
+
+	Directory Should Be Empty			${dir}						This folder has the files
+	
+Create the folder
+
+	Create Directory					${new dir}
+	Directory Should Be Empty			${new dir}					This folder has the files
+
+Create and copy files
+
+	Create File							${dir}/${textfile}			${content of the file}
+	Copy File							${dir}/${textfile}			${new dir}
+
+Check the expected result
+
+	File Should Exist					${dir}/${textfile}			«Files has been successfully created»
+	File Should Exist					${new dir}/${textfile}		«Files has been successfully created»
+
+Remove Directory and Files
+
+	Remove Directory					${new dir}					True
+	Remove File							${dir}/${textfile}
+
+	
+*** Test Cases ***
+
+Test number 1 Create a new folder, a textfile and copy textfile in the new folder
+
+	Create the folder
+	Create and copy files
+	Check the expected result
+

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180115 14:45:18.051" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="c:\Python27\Tests\Test1\Test1.txt" id="s1" name="Test1">
+<test id="s1-t1" name="Test number 1 Create a new folder, a textfile and copy textfile in the new folder">
+<kw type="setup" name="Check Folder">
+<kw name="Directory Should Be Empty" library="OperatingSystem">
+<doc>Fails unless the specified directory is empty.</doc>
+<arguments>
+<arg>${dir}</arg>
+<arg>This folder has the files</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.089" html="yes" level="INFO">Listing contents of directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir"&gt;c:\Python27\Tests\Test1\test_dir&lt;/a&gt;'.</msg>
+<msg timestamp="20180115 14:45:18.090" html="yes" level="INFO">Directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir"&gt;c:\Python27\Tests\Test1\test_dir&lt;/a&gt;' is empty.</msg>
+<status status="PASS" endtime="20180115 14:45:18.090" starttime="20180115 14:45:18.089"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.090" starttime="20180115 14:45:18.089"></status>
+</kw>
+<kw name="Create the folder">
+<kw name="Create Directory" library="OperatingSystem">
+<doc>Creates the specified directory.</doc>
+<arguments>
+<arg>${new dir}</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.091" html="yes" level="INFO">Created directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new"&gt;c:\Python27\Tests\Test1\test_dir\new&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180115 14:45:18.091" starttime="20180115 14:45:18.091"></status>
+</kw>
+<kw name="Directory Should Be Empty" library="OperatingSystem">
+<doc>Fails unless the specified directory is empty.</doc>
+<arguments>
+<arg>${new dir}</arg>
+<arg>This folder has the files</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.092" html="yes" level="INFO">Listing contents of directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new"&gt;c:\Python27\Tests\Test1\test_dir\new&lt;/a&gt;'.</msg>
+<msg timestamp="20180115 14:45:18.092" html="yes" level="INFO">Directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new"&gt;c:\Python27\Tests\Test1\test_dir\new&lt;/a&gt;' is empty.</msg>
+<status status="PASS" endtime="20180115 14:45:18.092" starttime="20180115 14:45:18.091"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.092" starttime="20180115 14:45:18.090"></status>
+</kw>
+<kw name="Create and copy files">
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${dir}/${textfile}</arg>
+<arg>${content of the file}</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.094" html="yes" level="INFO">Created file '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\mytest.txt&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180115 14:45:18.094" starttime="20180115 14:45:18.092"></status>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<doc>Copies the source file into the destination.</doc>
+<arguments>
+<arg>${dir}/${textfile}</arg>
+<arg>${new dir}</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.099" html="yes" level="INFO">Copied file from '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\mytest.txt&lt;/a&gt;' to '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\new\mytest.txt&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180115 14:45:18.099" starttime="20180115 14:45:18.094"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.099" starttime="20180115 14:45:18.092"></status>
+</kw>
+<kw name="Check the expected result">
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${dir}/${textfile}</arg>
+<arg>«Files has been successfully created»</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.100" html="yes" level="INFO">File '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\mytest.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" endtime="20180115 14:45:18.101" starttime="20180115 14:45:18.100"></status>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${new dir}/${textfile}</arg>
+<arg>«Files has been successfully created»</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.101" html="yes" level="INFO">File '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\new\mytest.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" endtime="20180115 14:45:18.101" starttime="20180115 14:45:18.101"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.101" starttime="20180115 14:45:18.100"></status>
+</kw>
+<kw type="teardown" name="Remove Directory and Files">
+<kw name="Remove Directory" library="OperatingSystem">
+<doc>Removes the directory pointed to by the given ``path``.</doc>
+<arguments>
+<arg>${new dir}</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.103" html="yes" level="INFO">Removed directory '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\new"&gt;c:\Python27\Tests\Test1\test_dir\new&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180115 14:45:18.103" starttime="20180115 14:45:18.102"></status>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>${dir}/${textfile}</arg>
+</arguments>
+<msg timestamp="20180115 14:45:18.104" html="yes" level="INFO">Removed file '&lt;a href="file://c:\Python27\Tests\Test1\test_dir\mytest.txt"&gt;c:\Python27\Tests\Test1\test_dir\mytest.txt&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180115 14:45:18.104" starttime="20180115 14:45:18.103"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.104" starttime="20180115 14:45:18.102"></status>
+</kw>
+<status status="PASS" endtime="20180115 14:45:18.104" critical="yes" starttime="20180115 14:45:18.088"></status>
+</test>
+<status status="PASS" endtime="20180115 14:45:18.105" starttime="20180115 14:45:18.053"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test1" pass="1">Test1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
